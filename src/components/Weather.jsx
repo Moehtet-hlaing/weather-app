@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Weather.css'
 import search_icon from '../assets/search.png';
 import clear_icon from '../assets/clear.png';
@@ -10,6 +10,7 @@ import snow_icon from '../assets/snow.png';
 import wind_icon from '../assets/wind.png';
 
 const Weather = () => {
+  const inputRef = useRef();
   const [weatherData, setWeatherData] = useState(false);
   const allIcons = {
     "01d": clear_icon,
@@ -28,9 +29,17 @@ const Weather = () => {
     "13n": snow_icon
   };
 const search = async (city) => {
+  if (city === '') {
+    alert('Please enter a city name');
+    return;
+  }
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e7f51f9953b6741bdbcce82ff653b1f5`);
     const data = await response.json();
+    if (!response.ok) {
+      alert(data.message);
+      return;
+    }
     console.log(data);
     const icon = allIcons[data.weather[0].icon] || clear_icon;
     setWeatherData(
@@ -43,7 +52,8 @@ const search = async (city) => {
       }
     )
   } catch (error) {
-    console.error('Fetch failed:', error.message);
+    setWeatherData(false);
+    console.error(error);
   }
 };
 
@@ -53,9 +63,12 @@ const search = async (city) => {
   return (
     <div className='weather'>
     <div className="search-bar">
-        <input type="text" placeholder='Search' />
-        <img src={search_icon} alt="" />
+        <input type="text" placeholder='Search' ref={inputRef}/>
+        <img src={search_icon} alt="" onClick={() => search(inputRef.current.value)}/>
     </div>
+
+    {weatherData ? <>
+      
     <img src={weatherData.icon} alt="" className='weather-icon'/>
     <p className='temperature'>{weatherData.temperature} °C</p>
     <p className='location'>{weatherData.location}</p>
@@ -75,6 +88,8 @@ const search = async (city) => {
             </div>
         </div>
     </div>
+    </> : <></>}
+
     </div>
   )
 }
