@@ -12,6 +12,8 @@
 .search-bar{
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: calc(100% - 4px);
     gap: 12px;
 }
 
@@ -86,6 +88,8 @@
 
 .search-bar{
     gap: 12px;
+    width: calc(100% - 4px);
+
 }
 
 .search-bar input{
