@@ -40,7 +40,6 @@ const search = async (city) => {
       alert(data.message);
       return;
     }
-    console.log(data);
     const icon = allIcons[data.weather[0].icon] || clear_icon;
     setWeatherData(
       {
@@ -69,7 +68,7 @@ const search = async (city) => {
 
     {weatherData ? <>
       
-    <img src={weatherData.icon} alt="" className='weather-icon'/>
+    <img src={weatherData.icon} alt="" className='weather-icon '/>
     <p className='temperature'>{weatherData.temperature} °C</p>
     <p className='location'>{weatherData.location}</p>
     <div className="weather-data">

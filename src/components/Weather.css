@@ -1,6 +1,7 @@
 .weather{
     place-self: center;
     padding: 40px;
+    width: calc(100% - 12px);
     border-radius: 10px;
     background-image: linear-gradient(45deg, #2f4680, #500ae4);
     display: flex;
@@ -73,4 +74,62 @@
 .weather-data .col img{
     width: 26px;
     margin-top: 10px;
+}
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+@media (min-width: 640px) {
+.weather{
+    padding: 40px;
+    width: 380px;
+    border-radius: 10px;
+}
+
+.search-bar{
+    gap: 12px;
+}
+
+.search-bar input{
+    height: 50px;
+    padding-left: 25px;
+    font-size: 18px;
+}
+
+.search-bar img {
+    width: 50px;
+    padding: 15px;
+}
+
+.weather-icon{
+    width: 150px;
+    margin-top: 30px 0;
+}
+
+.temperature{
+    font-size: 80px;
+    line-height: 1;
+}
+
+.location{
+    font-size: 40px;
+}
+
+.weather-data{
+    width: 100%;
+    margin-top: 40px;
+}
+
+
+.weather-data .col{
+    gap: 12px;
+    font-size: 22px;
+}
+
+.weather-data .col span{
+    font-size: 16px;
+}
+
+.weather-data .col img{
+    width: 26px;
+    margin-top: 10px;
+}
 }
