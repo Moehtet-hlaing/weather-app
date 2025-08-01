@@ -60,7 +60,8 @@ const search = async (city) => {
       search('London');
     }, []);
   return (
-    <div className='weather'>
+    <div className=' flex justify-center items-center w-[100%] mx-auto min-h-screen bg-[#e2d4ff]'>
+      <div className='weather'>
     <div className="search-bar">
         <input type="text" placeholder='Search' ref={inputRef}/>
         <img src={search_icon} alt="" onClick={() => search(inputRef.current.value)}/>
@@ -89,6 +90,7 @@ const search = async (city) => {
     </div>
     </> : <></>}
 
+    </div>
     </div>
   )
 }
