@@ -8,6 +8,7 @@ import humidity_icon from '/assets/humidity.png';
 import rain_icon from '/assets/rain.png';
 import snow_icon from '/assets/snow.png';
 import wind_icon from '/assets/wind.png';
+import { FaSearch } from 'react-icons/fa';
 
 const Weather = () => {
   const inputRef = useRef();
@@ -60,11 +61,15 @@ const search = async (city) => {
       search('London');
     }, []);
   return (
-    <div className=' flex justify-center items-center w-[100%] mx-auto min-h-screen bg-[#e2d4ff]'>
-      <div className='weather'>
-    <div className="search-bar">
-        <input type="text" placeholder='Search' ref={inputRef}/>
-        <img src={search_icon} alt="" onClick={() => search(inputRef.current.value)}/>
+    <div className=' flex justify-center items-center w-[100%] mx-auto min-h-screen bg-[#e2d4ff] '>
+      <div className='weather bg-gradient-to-br from-indigo-700 to-purple-500 text-white rounded-2xl p-6 w-full max-w-[400px] shadow-lg'>
+    <div className=" flex justify-center items-center ">
+      <div className="search-bar flex items-center gap-3">
+        <input type="text"  placeholder='Search' ref={inputRef}/>
+        <button onClick={() => search(inputRef.current.value)} className='flex items-center justify-center'>
+          <FaSearch className='w-6 h-6'/>
+        </button>
+    </div>
     </div>
 
     {weatherData ? <>
