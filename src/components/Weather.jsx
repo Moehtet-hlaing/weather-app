@@ -64,8 +64,8 @@ const search = async (city) => {
     <div className=' flex justify-center items-center w-[100%] mx-auto min-h-screen bg-[#e2d4ff] '>
       <div className='weather bg-gradient-to-br from-indigo-700 to-purple-500 text-white rounded-2xl p-6 w-full max-w-[400px] shadow-lg flex flex-col justify-center'>
     <div className=" flex justify-center items-center ">
-      <div className="search-bar flex items-center gap-3 max-w-[320px]">
-        <input type="text"  placeholder='Search' ref={inputRef}/>
+      <div className="search-bar flex items-center gap-3 max-w-[250px]">
+        <input type="text"  placeholder='Search' ref={inputRef} className=' max-w-[200px] placeholder:text-gray-500'/>
         <button onClick={() => search(inputRef.current.value)} className='flex items-center justify-center'>
           <FaSearch className='w-6 h-6'/>
         </button>
